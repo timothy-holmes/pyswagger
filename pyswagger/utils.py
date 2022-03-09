@@ -9,7 +9,12 @@ import re
 import os
 import operator
 import functools
-import collections
+
+# import according to python version
+try:  # Python >= 3.3
+    from collections.abc import MutableMapping
+except ImportError:  # Python < 3.3 including Python 2
+    from collections import MutableMapping
 
 #TODO: accept varg
 def scope_compose(scope, name, sep=private.SCOPE_SEPARATOR):
